@@ -1,2 +1,2 @@
 # ng-store-cypress
-Cypress examples for a fake License Plate store
+Cypress examples for a fake License Plate store (http://store.angulartraining.com)
