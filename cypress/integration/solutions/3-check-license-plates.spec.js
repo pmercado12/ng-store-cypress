@@ -8,9 +8,9 @@ describe('License plate store home page', () => {
     it('displays 8 license plates', () => {
         cy.visit('http://store.angulartraining.com');
         cy.get('app-license-plate').should('have.length', 8);
-        cy.get('app-license-plate').then( $plates => {
-            cy.wrap($plates[0]).contains('2008 Georgia license plate').should('be.visible');
-            cy.wrap($plates[0]).contains('$8').should('be.visible');
-        });
+        cy.get('app-license-plate:nth-of-type(1)').contains('2008 Georgia license plate').should('be.visible');
+        cy.get('app-license-plate:nth-of-type(1)').contains('$8').should('be.visible');
+        cy.get('app-license-plate:nth-of-type(2)').contains('2015 New Jersey license plate').should('be.visible');
+        cy.get('app-license-plate:nth-of-type(2)').contains('$11').should('be.visible');
     });
 });
