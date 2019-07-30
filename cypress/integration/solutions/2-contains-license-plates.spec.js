@@ -4,4 +4,9 @@ describe('License plate store home page', () => {
         cy.visit('http://store.angulartraining.com');
         cy.contains('Welcome to our store').should('be.visible');
     });
+
+    it('displays 8 license plates', () => {
+        cy.visit('http://store.angulartraining.com');
+        cy.get('app-license-plate').should('have.length', 8);
+    });
 });
