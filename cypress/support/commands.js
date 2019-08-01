@@ -23,3 +23,9 @@
 //
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add("checkLicensePlateAt", (index, ...stringsToCheck) => {
+    for (const str of stringsToCheck) {
+        cy.get(`app-license-plate:nth-of-type(${index})`).contains(str).should('be.visible');
+    }
+});
