@@ -1,14 +1,12 @@
 describe('License plate store home page', () => {
 
-    beforeEach(() => {
-        cy.visit('/');
-    });
-
     it('displays the right main title', () => {
+        cy.visit('/');
         cy.contains('Welcome to our store').should('be.visible');
     });
 
     it('displays 8 license plates', () => {
+        cy.visit('/');
         cy.get('app-license-plate').should('have.length', 8);
         cy.checkLicensePlateAt(1, '2008 Georgia license plate', '$8');
         cy.checkLicensePlateAt(2, '2015 New Jersey license plate', '$11');
