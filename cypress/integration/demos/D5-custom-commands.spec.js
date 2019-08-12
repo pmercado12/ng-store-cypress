@@ -34,4 +34,17 @@ describe('License plate store home page', () => {
         cy.checkLicensePlateAt(7, '2016 New York license plate', '$9');
         cy.checkLicensePlateAt(8, '2007 Pennsylvania license plate', '$11');
     });
+
+    it('supports multiple currencies', () => {
+        cy.get('app-currency-switcher').click();
+        cy.contains('EUR').click();
+        cy.checkLicensePlateAt(1, '2008 Georgia license plate', '€9.12');
+        cy.checkLicensePlateAt(2, '2015 New Jersey license plate', '€12.54');
+        cy.checkLicensePlateAt(3, '2013 California My Tahoe license plate', '€10.26');
+        cy.checkLicensePlateAt(4, '2010 Colorado license plate', '€5.7');
+        cy.checkLicensePlateAt(5, '2017 Florida license plate', '€11.4');
+        cy.checkLicensePlateAt(6, '2014 Utah license plate', '€11.4');
+        cy.checkLicensePlateAt(7, '2016 New York license plate', '€10.26');
+        cy.checkLicensePlateAt(8, '2007 Pennsylvania license plate', '€12.54');
+    });
 });
