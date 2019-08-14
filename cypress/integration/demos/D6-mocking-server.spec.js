@@ -17,6 +17,17 @@ describe('License plate store home page', () => {
             .and('have.css', 'font-family').and('match', /Segoe UI/);
     });
 
+    it('can navigate to the cart page', () => {
+        cy.contains('My cart').click();
+        cy.contains('My Cart').should('be.visible');
+        cy.contains('Your current cart contents').should('be.visible');
+    });
+
+    it('can navigate to the checkout page', () => {
+        cy.contains('Checkout').click();
+        cy.contains('Enter your personal information to complete your order').should('be.visible');
+    });
+
     it('displays 8 license plates', () => {
         cy.get('app-license-plate').should('have.length', 8);
         cy.checkLicensePlateAt(1, '2008 Georgia license plate', '$8');
