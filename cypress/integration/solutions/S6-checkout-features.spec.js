@@ -4,7 +4,7 @@ describe('Checkout features', () => {
         cy.server();
         cy.route('/demos/angular/rates.php', {EUR: 1.5, GBP: 2}).as('rates');
         cy.route('/demos/angular/plates.php', 'fixture:plates.json').as('plates');
-        cy.route({method: 'POST', url: '/demos/angular/checkout.php'}, {}).as('checkout');
+        cy.route('POST', '/demos/angular/checkout.php', {result: 'OK'}).as('checkout');
         cy.visit('/');
         cy.wait('@rates');
         cy.wait('@plates');
@@ -37,8 +37,9 @@ describe('Checkout features', () => {
         cy.get("[name='zip']").type('95742');
         cy.get("[name='cc']").type('45678901234567890');
         cy.contains('Submit').should('be.visible').click();
-        cy.wait('@checkout');
-        // TODO: Click the submit button and make sure that a HTTP POST request to /checkout.php was made and that the response was successful
+        cy.wait('@checkout').then(result => {
+            cy.wrap(result.responseBody).should('be.deep.equal',  {result: 'OK'})
+        });
     });
 
 });
