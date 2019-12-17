@@ -1,3 +1,21 @@
 {
-  "baseUrl": "http://store.angulartraining.com"
+  "baseUrl2": "http://store.angulartraining.com",
+  "baseUrl12": "http://sigep-orc12.sigma.gob.bo/rsseguridad/loginapi.html?redirect_uri=/rsseguridad/apiseg/redirect",
+  "baseUrlRSSEGURIDAD":"http://sigeppre-wl12.sigma.gob.bo/rsseguridad/#/home",
+  "baseUrl88":"http://192.168.101.88",    
+  "env":{
+    "baseTest":"http://sigephelp.sigma.gob.bo",
+
+    "usuarioBen":"SCY485838000",
+    "passwordBen":"VVAXLUVJ",
+
+    "usuarioBon":"SCY485838000",
+    "passwordBon":"VVAXLUVJ",
+
+    "usuarioCuo":"RCL600799800",
+    "passwordCuo":"MCBXAGQW"
+  },
+  "baseUrl":"http://sigephelp.sigma.gob.bo/rsseguridad/loginapi.html?redirect_uri=/rsseguridad/apiseg/redirect",  
+  "videosFolder":"test/cypress/videos",
+  "chromeWebSecurity": false
 }
