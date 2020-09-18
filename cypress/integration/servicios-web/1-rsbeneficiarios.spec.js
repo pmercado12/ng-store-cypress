@@ -16,7 +16,7 @@ describe('Prueba servicio web rsbeneficiarios', () => {
         })
     });
 
-    it('Get Persona Natural', () => {
+    /*it('Get Persona Natural', () => {
         cy.request({
             method: 'GET',
             url: Cypress.env('baseTest') + '/rsbeneficiarios/api/v1/beneficiarios/natural?numeroDocumento=6157034&primerApellido=ALVARADO&segundoApellido=ATAHUICHI&nombres=ARIEL&fechaNacimiento=05-10-1985', // baseUrl is prepended to url
@@ -29,9 +29,51 @@ describe('Prueba servicio web rsbeneficiarios', () => {
             console.log(data);
             expect(data).to.have.property('numeroDocumento', "6157034");
         })
+    });*/
+
+    it('PUT Persona Juridica existente', () => {
+        let dataFirmada = {};
+        cy.request({
+            method: 'POST',
+            url: Cypress.env('baseTest') + '/rsseguridad/api/utils/firmamelo',
+            headers: {
+                'Authorization': "bearer " + token,
+                "Content-Type": "application/json"
+            },
+            form: false,
+            body: { "beneficiario": "796432", 
+            "pais": "BO", 
+            "ciudad": "La Paz", 
+            "localidad": "Murillo", 
+            "direccion": "...", 
+            "email": "pruefirma@gm.com", 
+            "telefono": "2-244898", 
+            "celular": "79865432", 
+            "fax": "-", 
+            "matriculaComercio": 128851 }
+        }).then((resp) => {
+            dataFirmada = resp.body;
+            dataFirmada.header.kid = "mefp.busa";
+            cy.log(dataFirmada);
+            cy.request({
+                method: 'PUT',
+                url: Cypress.env('baseTest') + '/rsbeneficiarios/api/v1/beneficiarios/natural',
+                headers: {
+                    'Authorization': "bearer " + token,
+                    "Content-Type": "application/json"
+                },
+                form: false,
+                failOnStatusCode: false,
+                timeout: 5000,
+                body: dataFirmada
+            }).then((resp) => {
+                expect(JSON.parse(atob(resp.body.payload)).data).to.have.property('beneficiario');
+            })
+        })
+
     });
 
-    it('Post Persona Natural', () => {
+    /*it('Post Persona Natural', () => {
         let dataFirmada = {};
         cy.request({
             method: 'POST',
@@ -258,5 +300,5 @@ describe('Prueba servicio web rsbeneficiarios', () => {
             })
         })
 
-    });
+    });*/
 });

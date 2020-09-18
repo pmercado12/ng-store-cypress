@@ -1,21 +1,38 @@
 {
   "baseUrl2": "http://store.angulartraining.com",
   "baseUrl12": "http://sigep-orc12.sigma.gob.bo/rsseguridad/loginapi.html?redirect_uri=/rsseguridad/apiseg/redirect",
-  "baseUrlRSSEGURIDAD":"http://sigeppre-wl12.sigma.gob.bo/rsseguridad/#/home",
+  "baseUrlPre":"http://sigeppre-wl12.sigma.gob.bo/rsseguridad/#/home",
+  "baseUrlHelp":"http://sigephelp.sigma.gob.bo/rsseguridad/#/home",
+  "baseUrl22":"https://sigep.sigma.gob.bo/rsseguridad/#/home",
+  "baseUrl":"http://192.168.99.74:7071/rsseguridad/loginapi.html?redirect_uri=/rsseguridad/apiseg/redirect",
   "baseUrl88":"http://192.168.101.88",    
   "env":{
-    "baseTest":"http://sigephelp.sigma.gob.bo",
+    "baseTest":"http://192.168.99.74:7071",
 
-    "usuarioBen":"SCY485838000",
-    "passwordBen":"VVAXLUVJ",
+    "usuarioBen":"anonimo",
+    "passwordBen":"anonimo",
 
-    "usuarioBon":"SCY485838000",
-    "passwordBon":"VVAXLUVJ",
+    "usuarioBon":"anonimo",
+    "passwordBon":"anonimo",
 
-    "usuarioCuo":"RCL600799800",
-    "passwordCuo":"MCBXAGQW"
+    "usuarioCuo":"anonimo",
+    "passwordCuo":"anonimo",
+
+    "usuarioSic":"anonimo",
+    "passwordSic":"anonimo",
+
+    "usuarioCat":"anonimo",
+    "passwordCat":"anonimo"    ,
+
+    "usuarioCla":"SCY485838000",
+    "passwordCla":"SCY48583800017"    
   },
-  "baseUrl":"http://sigephelp.sigma.gob.bo/rsseguridad/loginapi.html?redirect_uri=/rsseguridad/apiseg/redirect",  
+  "baseUrlTokenHelp":"http://sigephelp.sigma.gob.bo/rsseguridad/loginapi.html?redirect_uri=/rsseguridad/apiseg/redirect",  
+  "baseUrlProd":"http://sigep.sigma.gob.bo/rsseguridad/loginapi.html?redirect_uri=/rsseguridad/apiseg/redirect",  
+  "baseUrlLOCALSICOES":"http://192.168.99.107/portal/contrataciones/busqueda/convocatorias.php?tipo=convNacional",
+  
   "videosFolder":"test/cypress/videos",
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "requestTimeout":10000,
+  "defaultCommandTimeout":10000
 }

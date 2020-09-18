@@ -15,13 +15,13 @@ describe('Registro de nueva propuesta', () => {
     for (let i = 0; i < arrayUsuarios.length; i++) {
         it('Propuesta usuario' + arrayUsuarios[i].usuario, () => {
             cy.get('a[title="Entrar"]').click();
-            cy.get("#exampleInputEmail1").type(arrayUsuarios[i].usuario);
-            cy.get("#exampleInputPassword1").type(arrayUsuarios[i].password);
+            cy.get("#user").type(arrayUsuarios[i].usuario);
+            cy.get("#paswe").type(arrayUsuarios[i].password);
             cy.get('button[type=submit]').click();
             cy.get('a[title="Registro Único de Proveedores del Estado"]').click();
             cy.get('a[title="Procesos de Contratación"]').click();
             cy.get('a[title="Búsqueda de procesos"]').click();
-            cy.get("scpro-list form input").type("955809{enter}");
+            cy.get("scpro-list form input").type("1005271{enter}");
             cy.get('#tablaValues tbody tr:nth-child(1) button').click();
             cy.get('#tablaValues tbody tr:nth-child(1) a>span.fa-edit').click();
             cy.get('botones-opciones-footer a i.fa-arrow-right').click();

@@ -31,7 +31,7 @@ describe('Prueba servicio web rscuotas', () => {
         })
     });
 
-    it('Post pacinversion', () => {
+    /*it('Post pacinversion', () => {
         //EXTRAIDA DE LOS ARCHIVOS DE LOGS DE HELP
         let dataFirmadaVIPFE = {
             "payload": "W10",
@@ -54,5 +54,5 @@ describe('Prueba servicio web rscuotas', () => {
             expect(JSON.parse(atob(resp.body.payload)).data).to.have.property('correlativo');
         })
 
-    });
+    });*/
 });
